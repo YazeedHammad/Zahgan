@@ -9,13 +9,15 @@ const User = require('./database-mongo/User');
 const UserSession = require('./database-mongo/UserSession');
 const Creator = require('./database-mongo/Creator');
 const CreatorSession = require('./database-mongo/CreatorSession');
+const ContactUs = require('./database-mongo/contactus');
 
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }))
-mongoose.connect('mongodb://zaid-1994:zaid-1994@ds119394.mlab.com:19394/zahgan')
+mongoose.connect('mongodb://BCT:gg835864@ds127842.mlab.com:27842/blackcodeteam')
+// mongoose.connect('mongodb://ozil:ozil123@ds131814.mlab.com:31814/ozil')
 
 mongoose.Promise = global.Promise;
 
@@ -34,18 +36,43 @@ db.once('open', function () {
 
 //var data=[{Name:'"https://wallpaperbrowse.com5/media/images/pexels-photo-248797.jpeg"' ,HomeWork:'y7ya'}]
 
+//test 
+app.get('/test', function (req, res) {
+    console.log(req.token)
+    console.log(req)
+});
+
+
+
 // get a list for all events from the db
 app.get('/create', function (req, res, next) {
-  Event.find({}).then(function (events) {
+  Event.find({approve:1}).then(function (events) {
     ;
     res.send(events)
   }).catch(next)
 });
 
 
+// contact us
+app.post('/contactus', function (req, res, next) {
+console.log(9999)
+ContactUs.create(req.body.obj).then(function (data) {
+  res.send(data)
+}).catch(next)
+ 
+});
+
+// feedback 
+app.post('/feedback', function (req, res, next) {
+  console.log(9999)
+  ContactUs.create(req.body.obj).then(function (data) {
+    res.send(data)
+  }).catch(next)
+   
+  });
 //add new event to the db
 app.post('/create', function (req, res, next) {
-console.log("hi y7ya")
+console.log(req.body)
   Event.create(req.body.obj).then(function (event) {
     res.send(event)
   }).catch(next)
