@@ -6,9 +6,7 @@ class Feedback extends React.Component {
 
 
   state = {
-    name : null,
-    email : null,
-    feedback : null
+     feedback : null
   };
 
 handleChange = (event)=>{
@@ -21,20 +19,18 @@ handleChange = (event)=>{
 handleSubmit = (event)=>{
 
    var obj = {
-    name: this.state.name,
-    email: this.state.email,
     feedback: this.state.feedback
   }
 
 // post requst using ajax 
 $.ajax({
-  type: "GET",
+  type: "POST",
   url: '/feedback',
   data: {
       obj
   },
   success: function (data) {
-      console.log("ajax data", data)
+      console.log("yazeed data", data)
   },
   error: (err) => {
 
