@@ -54,36 +54,16 @@ event.preventDefault()
            <div className="createEvent">
               <div>
                 <div className="form-group row">
-                  <label className="col-sm-2 col-form-label">User Name:</label>
+                  <label className="col-sm-2 col-form-label" >Say Something: </label>
                   <div className="col-sm-10">
-                    <input id='name' className="form-control" placeholder="user name" onChange = {this.handleChange} />
-
-                  </div>
-                </div>
-              </div>
-
-
-              <div>
-                <div className="form-group row">
-                  <label className="col-sm-2 col-form-label">User Email: </label>
-                  <div className="col-sm-10">
-                    <input id='email' className="form-control" placeholder="enter your email" onChange = {this.handleChange} />
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <div className="form-group row">
-                  <label className="col-sm-2 col-form-label">FeedBack: </label>
-                  <div className="col-sm-10">
-                    <input style={{height:100}} id='feedback' className="form-control" placeholder="FeedBack" onChange = {this.handleChange} />
+                    <input style={{height:100}} id='feedback' className="form-control" placeholder="Say Something <3" onChange = {this.handleChange} />
                   </div>
                 </div>
               </div>
 
 
               <div className="row">
-                <button type="submit" value="create" className="btn btn-primary btn-lg btn-block" >Submit</button>
+                <button type="submit" value="create" className="btn btn-primary btn-lg btn-block red"  >Rate Us</button>
               </div>
             </div>
             <br />
